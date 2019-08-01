@@ -1,0 +1,13 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+68:72:51:62:CA:64, 2019-08-01 12:22:28, 2019-08-01 12:22:50, 13,  65, WPA2, CCMP, PSK, -87,       10,        0,   0.  0.  0.  0,  20, delaharpeBACKflat AP, 
+C8:BE:19:61:41:7E, 2019-08-01 12:22:27, 2019-08-01 12:22:49,  6, 130, WPA2, CCMP, PSK, -84,       16,        3,   0.  0.  0.  0,  10, 39Oatlands, 
+B8:A3:86:66:38:E6, 2019-08-01 12:22:31, 2019-08-01 12:22:49,  1, 130, WPA2, CCMP TKIP, PSK, -83,        9,        2,   0.  0.  0.  0,  11, delaharpeAP, 
+BC:F6:85:5D:6C:DD, 2019-08-01 12:22:27, 2019-08-01 12:22:51,  6, 270, WPA2, CCMP, PSK, -63,       62,       16,   0.  0.  0.  0,   9, ssid-1234, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+7C:1C:4E:E9:94:66, 2019-08-01 12:22:35, 2019-08-01 12:22:35, -83,        2, B8:A3:86:66:38:E6,
+60:A4:D0:8A:8E:9F, 2019-08-01 12:22:45, 2019-08-01 12:22:50, -82,        5, 68:72:51:62:CA:64,
+DC:41:5F:77:C6:5F, 2019-08-01 12:22:48, 2019-08-01 12:22:49, -72,        9, BC:F6:85:5D:6C:DD,
+14:D1:69:FE:0E:2E, 2019-08-01 12:22:30, 2019-08-01 12:22:30, -46,        1, BC:F6:85:5D:6C:DD,
+
