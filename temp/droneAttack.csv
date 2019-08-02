@@ -1,16 +1,16 @@
- CH 10 ][ Elapsed: 6 s ][ 2019-08-01 13:14                                     
-                                                                               
+ CH  9 ][ Elapsed: 6 s ][ 2019-08-02 10:13                                         
+                                                                                                                                      
  BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
-                                                                               
- C8:BE:19:61:41:7E  -78        5        2    0   6  130  WPA2 CCMP   PSK  39Oat
- BC:F6:85:5D:6C:DD  -50       26        4    0   6  270  WPA2 CCMP   PSK  ssid-
- 68:72:51:62:CA:64  -86        5        0    0  13   65  WPA2 CCMP   PSK  delah
-                                                                               
- BSSID              STATION            PWR   Rate    Lost    Frames  Probe     
-                                                                               
- BC:F6:85:5D:6C:DD  6C:C7:EC:CF:51:6E   -1    1e- 0      0        1             
- BC:F6:85:5D:6C:DD  34:7C:25:0E:34:90   -1    1e- 0      0        2             
- BC:F6:85:5D:6C:DD  14:D1:69:FD:A7:09   -1    1e- 0      0        1             
- BC:F6:85:5D:6C:DD  14:D1:69:FE:0E:2E  -50    1e- 6      0        2             
- BC:F6:85:5D:6C:DD  DC:41:5F:77:C6:5F  -68    1e-24      0        4             
+                                                                                                                                      
+ 90:03:B7:38:DB:2E  -41       18       25    3   1   65  OPN              ardrone2_293506                                             
+ BC:F6:85:5D:6C:DD  -57       20        7    1   6  270  WPA2 CCMP   PSK  ssid-1234                                                   
+ B8:A3:86:66:38:E6  -68        2        1    0   1  130  WPA2 CCMP   PSK  delaharpeAP                                                 
+ 68:72:51:62:CA:64  -86        7        0    0  13   65  WPA2 CCMP   PSK  delaharpeBACKflat AP                                        
+ C8:BE:19:61:41:7E  -86        3        1    0   6  130  WPA2 CCMP   PSK  39Oatlands                                                  
+                                                                                                                                      
+ BSSID              STATION            PWR   Rate    Lost    Frames  Probe                                                            
+                                                                                                                                      
+ (not associated)   DA:A1:19:37:6E:64  -73    0 - 1      0        3                                                                    
+ 90:03:B7:38:DB:2E  14:D1:69:FE:0E:2E  -77    0e- 0e     3       23                                                                    
+ BC:F6:85:5D:6C:DD  A0:D7:95:75:84:AA  -85    0e- 1     65       10  ssid-1234                                                         
 [0J[1;1H

